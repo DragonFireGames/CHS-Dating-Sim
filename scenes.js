@@ -15,18 +15,18 @@
 })();
 
 const defaultGameData = {
-    affection: {
-      maya: 0,
-      skylar: 0,
-      amanda: 0,
-      valentina: 0,
-      elena: 0
-    },
-    flags: {},
-    inventory: [],
-    money: 0,
-    day: 0,
-    // whatever else you want
+  affection: {
+    maya: 0,
+    skylar: 0,
+    amanda: 0,
+    valentina: 0,
+    elena: 0
+  },
+  flags: {},
+  inventory: [],
+  money: 0,
+  day: 0,
+  // whatever else you want
 };
 
 /* Character definitions */
@@ -119,6 +119,7 @@ var backgrounds = {
     classes: {
       biology: "backgrounds/school/classes/biology.jpg",
       calculus: "backgrounds/school/classes/calculus.jpg",
+      government: "backgrounds/school/classes/government.jpg",
     },
     hallways: {
       F: "backgrounds/school/hallways/F.jpg",
@@ -173,10 +174,89 @@ var scenes = {
       {
         speaker: "Narrator",
         text: "Seating is already chosen, but there is an open seat next to a girl.",
-        next: "intro"
+        next: "calculus_intro"
       },
     ]
   },
+  calculus_intro: {
+    id: "calculus_intro",
+    background: backgrounds.school.classes.calculus,
+    cast: {
+      maya: {
+        emotion: "neutral",
+        left: "55vw",
+        bottom: "0vh"
+      }
+    },
+    script: [
+      {
+        speaker: "Narrator",
+        text: "You take a seat next to her.",
+        choices: [
+          { text: "Introduce Yourself", next: ()=>vnIndex+1, onchoose: ()=>gameData.affection.maya++ },
+          { text: "Ignore Her", next: ()=>vnIndex+5, }
+        ]
+      },
+      {
+        speaker: "{player}",
+        text: "Uh, hi... my name is {player} what is yours?"
+      },
+      {
+        speaker: "Maya",
+        text: "Maya Higgins"
+      },
+      {
+        speaker: "{player}",
+        text: "Nice to meet you, Maya. Are you excited for this class?"
+      },
+      {
+        speaker: "Maya",
+        text: "Yeah.",
+        next: ()=>vnIndex+2,
+      },
+      {
+        speaker: "Narrator",
+        text: "You learn that her name is Maya Higgins when the teacher takes attendance."
+      },
+      {
+        speaker: "Teacher",
+        text: "So before we begin let me tell you a bit about myself..."
+      },
+      {
+        speaker: "Narrator",
+        text: "The teacher talks the rest of the period.",
+        next: "government_intro"
+      },
+    ]
+  },
+  government_intro: {
+    id: "government_intro",
+    background: backgrounds.school.classes.government,
+
+    cast: {
+      skylar: { emotion: "happy", left: "20vw", bottom: "0vh" },
+      valentina:{ emotion: "neutral", left: "80vw", bottom: "0vh" },
+      maya: { emotion: "fearful", left: "55vw", bottom: "0vh" },
+      amanda: { emotion: "neutral", left: "35vw", bottom: "0vh" },
+      elena: { emotion: "neutral", left: "65vw", bottom: "0vh" }
+    },
+
+    script: [
+      {
+        speaker: "Narrator",
+        text: "You arrive at your next class, Government & Economics."
+      },
+      {
+        speaker: "Teacher",
+        text: "Welcome to Government. Before we begin, we’re doing an icebreaker."
+      },
+      {
+        speaker: "Teacher",
+        text: "Walk around and find classmates who match the prompts I give you."
+      },
+    ]
+  },
+
 
   home: {
     id: "home",

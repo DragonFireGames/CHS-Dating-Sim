@@ -283,9 +283,10 @@ function spawnCharacter(id, char) {
     if (def.height) img.style.height = def.height;
     if (def.layer) img.style.zIndex = def.layer;
     if (def.transition) img.style.transition = def.transition;
+    if (def.visible !== undefined) img.style.visibility = def.visible ? "visible" : "hidden";
     img.style.left = def.left;
     img.style.bottom = def.bottom;
-    img.style.transform = `scaleX(${def.facing})`;
+    //img.style.transform = `scaleX(${def.facing})`;
 
     document.getElementById("vnBackground").appendChild(img);
 
@@ -314,11 +315,8 @@ function applySceneChanges(sceneArray) {
         if (entry.transition) img.style.transition = entry.transition;
         if (entry.left) img.style.left = entry.left;
         if (entry.bottom) img.style.bottom = entry.bottom;
-
-        if (entry.facing !== undefined) {
-            img.style.transform = `scaleX(${entry.facing})`;
-        }
-
+        if (entry.visible !== undefined) img.style.visibility = entry.visible ? "visible" : "hidden";
+        //if (entry.facing) img.style.transform = `scaleX(${entry.facing})`;
         if (entry.emotion) {
             img.src = def.emotions[entry.emotion];
             // img.style.opacity = 0;
@@ -583,3 +581,68 @@ function fadeOutTitleMusic() {
         }
     }, 50);
 }
+
+
+//
+// Global cache so images stay in memory
+var imageCache = [];
+
+/* -----------------------------
+   PRELOAD CHARACTER IMAGES
+----------------------------- */
+function preloadCharacterImages(characters) {
+    for (const charName in characters) {
+        const char = characters[charName];
+
+        // preload default emotion if it exists
+        if (char.defaults && char.defaults.emotion && char.emotions) {
+            const def = char.emotions[char.defaults.emotion];
+            if (def) preloadImage(def);
+        }
+
+        // preload all emotion images
+        if (char.emotions) {
+            for (const emotion in char.emotions) {
+                preloadImage(char.emotions[emotion]);
+            }
+        }
+    }
+}
+
+/* -----------------------------
+   PRELOAD BACKGROUND IMAGES
+   (recursive for nested folders)
+----------------------------- */
+function preloadBackgroundImages(bgObj) {
+    for (const key in bgObj) {
+        const value = bgObj[key];
+
+        if (typeof value === "string") {
+            // direct image path
+            preloadImage(value);
+        } else if (typeof value === "object") {
+            // nested folder (e.g., classes, hallways)
+            preloadBackgroundImages(value);
+        }
+    }
+}
+
+/* -----------------------------
+   HELPER: LOAD A SINGLE IMAGE
+----------------------------- */
+function preloadImage(src) {
+    const img = new Image();
+    img.src = src;
+    imageCache.push(img);
+}
+
+/* -----------------------------
+   MASTER PRELOAD FUNCTION
+----------------------------- */
+function preloadAllAssets() {
+    preloadCharacterImages(characters);
+    preloadBackgroundImages(backgrounds);
+}
+
+// Call this once at startup
+preloadAllAssets();
