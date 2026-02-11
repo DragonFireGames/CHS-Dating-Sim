@@ -1,11 +1,11 @@
 
 (()=>{
   var list = [
-    "assets/maya/happy.png",
-    "assets/skylar/happy.png",
-    "assets/amanda/happy.png",
-    "assets/valentina/happy.png",
-    "assets/elena/happy.png",
+    "assets/Maya/happy.png",
+    "assets/Skylar/happy.png",
+    "assets/Amanda/happy.png",
+    "assets/Valentina/happy.png",
+    "assets/Elena/happy.png",
   ];
   for (var i = 1; i <= 2; i++) {
     var j = Math.floor(Math.random()*list.length);
@@ -35,32 +35,32 @@ var characters = {
       height: "80vh"
     },
     emotions: {
-      angry: "assets/maya/angry.png",
-      annoyed: "assets/maya/annoyed.png",
-      confused: "assets/maya/confused.png",
-      cringe: "assets/maya/cringe.png",
-      crying: "assets/maya/crying.png",
-      disgust: "assets/maya/disgust.png",
-      embarrassed: "assets/maya/embarrassed.png",
-      fearful: "assets/maya/fearful.png",
-      flustered: "assets/maya/flustered.png",
-      friendly: "assets/maya/friendly.png",
-      happy: "assets/maya/happy.png",
-      horny: "assets/maya/horny.png",
-      horny2: "assets/maya/horny-2.png",
-      hungry: "assets/maya/hungry.png",
-      laughing: "assets/maya/laughing.png",
-      listening: "assets/maya/listening.png",
-      neutral: "assets/maya/neutral.png",
-      sad: "assets/maya/sad.png",
-      scared: "assets/maya/scared.png",
-      shocked: "assets/maya/shocked.png",
-      shy: "assets/maya/shy.png",
-      smug: "assets/maya/smug.png",
-      tease: "assets/maya/tease.png",
-      wailing: "assets/maya/wailing.png",
-      wonder: "assets/maya/wonder.png",
-      worried: "assets/maya/worried.png"
+      angry: "assets/Maya/angry.png",
+      annoyed: "assets/Maya/annoyed.png",
+      confused: "assets/Maya/confused.png",
+      cringe: "assets/Maya/cringe.png",
+      crying: "assets/Maya/crying.png",
+      disgust: "assets/Maya/disgust.png",
+      embarrassed: "assets/Maya/embarrassed.png",
+      fearful: "assets/Maya/fearful.png",
+      flustered: "assets/Maya/flustered.png",
+      friendly: "assets/Maya/friendly.png",
+      happy: "assets/Maya/happy.png",
+      horny: "assets/Maya/horny.png",
+      horny2: "assets/Maya/horny-2.png",
+      hungry: "assets/Maya/hungry.png",
+      laughing: "assets/Maya/laughing.png",
+      listening: "assets/Maya/listening.png",
+      neutral: "assets/Maya/neutral.png",
+      sad: "assets/Maya/sad.png",
+      scared: "assets/Maya/scared.png",
+      shocked: "assets/Maya/shocked.png",
+      shy: "assets/Maya/shy.png",
+      smug: "assets/Maya/smug.png",
+      tease: "assets/Maya/tease.png",
+      wailing: "assets/Maya/wailing.png",
+      wonder: "assets/Maya/wonder.png",
+      worried: "assets/Maya/worried.png"
     }
   },
   skylar: {
@@ -70,10 +70,10 @@ var characters = {
       height: "80vh"
     },
     emotions: {
-      happy: "assets/skylar/happy.png",
-      friendly: "assets/skylar/happy.png",
-      talking: "assets/skylar/happy.png",
-      neutral: "assets/skylar/neutral.png",
+      happy: "assets/Skylar/happy.png",
+      friendly: "assets/Skylar/happy.png",
+      talking: "assets/Skylar/happy.png",
+      neutral: "assets/Skylar/neutral.png",
     }
   },
   amanda: {
@@ -83,8 +83,8 @@ var characters = {
       height: "80vh"
     },
     emotions: {
-      happy: "assets/amanda/happy.png",
-      neutral: "assets/amanda/neutral.png",
+      happy: "assets/Amanda/happy.png",
+      neutral: "assets/Amanda/neutral.png",
     }
   },
   valentina: {
@@ -94,8 +94,8 @@ var characters = {
       height: "80vh"
     },
     emotions: {
-      happy: "assets/valentina/happy.png",
-      neutral: "assets/valentina/neutral.png",
+      happy: "assets/Valentina/happy.png",
+      neutral: "assets/Valentina/neutral.png",
     }
   },
   elena: {
@@ -105,25 +105,25 @@ var characters = {
       height: "80vh"
     },
     emotions: {
-      happy: "assets/elena/happy.png",
-      neutral: "assets/elena/neutral.png",
+      happy: "assets/Elena/happy.png",
+      neutral: "assets/Elena/neutral.png",
     }
   }
 };
 
 var backgrounds = {
-  black: "assets/backgrounds/black.png",
-  school: "assets/backgrounds/school.jpg",
-  courtyard: "assets/backgrounds/courtyard.png",
-  hallway: "assets/backgrounds/hallway.png",
-  rooftop: "assets/backgrounds/hallway-nice.png", // Does not exist
-  classroom: "assets/backgrounds/classroom.jpg",
-  gym: "assets/backgrounds/gym.jpg",
-  bedroom: "assets/backgrounds/bedroom.jpg",
+  black: "backgrounds/black.png",
+  school: "backgrounds/school.jpg",
+  courtyard: "backgrounds/courtyard.png",
+  hallway: "backgrounds/hallway.png",
+  rooftop: "backgrounds/hallway-nice.png", // Does not exist
+  classroom: "backgrounds/classroom.jpg",
+  gym: "backgrounds/gym.jpg",
+  bedroom: "backgrounds/bedroom.jpg",
 };
 
 /* Scene definitions */
-var startingScene = "school_intro";
+var startingScene = "intro";
 var scenes = {
 
   school_intro: {
@@ -186,7 +186,7 @@ var scenes = {
   },
 
   intro: {
-    id: "school_intro",
+    id: "intro",
     background: backgrounds.school,
 
     cast: {
