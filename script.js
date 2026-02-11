@@ -386,8 +386,8 @@ function loadDialogueStep() {
 
     document.getElementById("nameTag").textContent = speakerName;
 
-    if (line.bg) {
-        document.getElementById("bgImage").src = line.bg;
+    if (line.background) {
+        document.getElementById("bgImage").src = line.background;
     }
 
     if (line.scene) {
