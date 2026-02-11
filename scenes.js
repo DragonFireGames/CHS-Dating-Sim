@@ -16,8 +16,11 @@
 
 const defaultGameData = {
     affection: {
-      girl: 0,
-      girl2: 0
+      maya: 0,
+      skylar: 0,
+      amanda: 0,
+      valentina: 0,
+      elena: 0
     },
     flags: {},
     inventory: [],
@@ -112,18 +115,28 @@ var characters = {
 };
 
 var backgrounds = {
-  black: "backgrounds/black.png",
-  school: "backgrounds/school.jpg",
-  courtyard: "backgrounds/courtyard.png",
-  hallway: "backgrounds/hallway.png",
-  rooftop: "backgrounds/hallway-nice.png", // Does not exist
-  classroom: "backgrounds/classroom.jpg",
-  gym: "backgrounds/gym.jpg",
+  school: {
+    classes: {
+      biology: "backgrounds/school/classes/biology.jpg",
+      calculus: "backgrounds/school/classes/calculus.jpg",
+    },
+    hallways: {
+      F: "backgrounds/school/hallways/F.jpg",
+    },
+    side_entrance: "backgrounds/school/side_entrance.jpg",
+    front_entrance: "backgrounds/school/front_entrance.jpg",
+    courtyard: "backgrounds/school/courtyard.jpg",
+    gym: "backgrounds/school/gym.jpg",
+    star_room: "backgrounds/school/star_room.jpg",
+    student_union: "backgrounds/school/student_union.jpg",
+    manga_shelf: "backgrounds/school/manga_shelf.jpg",
+  },
   bedroom: "backgrounds/bedroom.jpg",
+  black: "backgrounds/black.png",
 };
 
 /* Scene definitions */
-var startingScene = "intro";
+var startingScene = "school_intro";
 var scenes = {
 
   school_intro: {
@@ -137,16 +150,16 @@ var scenes = {
       {
         speaker: "Narrator",
         text: "You arrive on campus a bit late.",
-        background: backgrounds.school_side_entrance
+        background: backgrounds.school.side_entrance
       },
       {
         speaker: "Narrator",
         text: "You are alone.",
-        background: backgrounds.black
       },
       {
         speaker: "Narrator",
         text: "Most of your friends have already graduated. You never bothered meeting the younger classes.",
+        background: backgrounds.school.hallways.F
       },
       {
         speaker: "Narrator",
@@ -155,15 +168,15 @@ var scenes = {
       {
         speaker: "Narrator",
         text: "You arrive in your calculus class, slightly late.",
-        background: backgrounds.calculus_classroom
+        background: backgrounds.school.classes.calculus
       },
       {
         speaker: "Narrator",
         text: "Seating is already chosen, but there is an open seat next to a girl.",
+        next: "intro"
       },
     ]
   },
-
 
   home: {
     id: "home",
@@ -186,8 +199,8 @@ var scenes = {
   },
 
   intro: {
-    id: "intro",
-    background: backgrounds.school,
+    id: "school_intro",
+    background: backgrounds.school.front_entrance,
 
     cast: {
       maya: {
@@ -215,7 +228,7 @@ var scenes = {
 
   skip_test: {
     id: "skip_test",
-    background: backgrounds.courtyard,
+    background: backgrounds.school.courtyard,
 
     cast: {
       maya: {
@@ -240,7 +253,7 @@ var scenes = {
 
   test_intro: {
     id: "test_intro",
-    background: backgrounds.classroom,
+    background: backgrounds.school.classes.biology,
 
     cast: {
       maya: {
@@ -278,7 +291,7 @@ var scenes = {
 
   math_test_start: {
     id: "math_test_start",
-    background: backgrounds.classroom,
+    background: backgrounds.school.classes.biology,
 
     cast: {
       maya: {
@@ -325,7 +338,7 @@ var scenes = {
 
   math_test_pass: {
     id: "math_test_pass",
-    background: backgrounds.classroom,
+    background: backgrounds.school.classes.biology,
 
     cast: {
       maya: {
@@ -354,7 +367,7 @@ var scenes = {
 
   math_test_fail: {
     id: "math_test_fail",
-    background: backgrounds.classroom,
+    background: backgrounds.school.classes.biology,
 
     cast: {
       maya: {
@@ -387,7 +400,7 @@ var scenes = {
 
   reading_test_start: {
     id: "reading_test_start",
-    background: backgrounds.classroom,
+    background: backgrounds.school.classes.biology,
 
     cast: {
       maya: {
@@ -433,7 +446,7 @@ var scenes = {
 
   reading_test_pass: {
     id: "reading_test_pass",
-    background: backgrounds.classroom,
+    background: backgrounds.school.classes.biology,
 
     cast: {
       maya: {
@@ -458,7 +471,7 @@ var scenes = {
 
   reading_test_fail: {
     id: "reading_test_fail",
-    background: backgrounds.classroom,
+    background: backgrounds.school.classes.biology,
 
     cast: {
       maya: {
@@ -488,7 +501,7 @@ var scenes = {
 
   meet_skylar: {
     id: "meet_skylar",
-    background: backgrounds.courtyard,
+    background: backgrounds.school.courtyard,
 
     cast: {
       skylar: {
@@ -535,7 +548,7 @@ var scenes = {
 
   skylar_tour_start: {
     id: "skylar_tour_start",
-    background: backgrounds.courtyard,
+    background: backgrounds.school.courtyard,
 
     cast: {
       skylar: {
@@ -574,7 +587,7 @@ var scenes = {
 
   skylar_tour_cafeteria: {
     id: "skylar_tour_cafeteria",
-    background: backgrounds.cafeteria,
+    background: backgrounds.school.star_room,
 
     cast: {
       skylar: {
@@ -591,7 +604,7 @@ var scenes = {
       },
       {
         speaker: "Skylar",
-        text: "Pro tip: never get the ‘mystery stew’ on Thursdays."
+        text: "Pro tip: Hard shell tacos are only served in here on Tuesday."
       },
       {
         speaker: "Skylar",
@@ -607,7 +620,7 @@ var scenes = {
 
   skylar_tour_library: {
     id: "skylar_tour_library",
-    background: backgrounds.library,
+    background: backgrounds.school.student_union,
 
     cast: {
       skylar: {
@@ -624,7 +637,7 @@ var scenes = {
       },
       {
         speaker: "Skylar",
-        text: "If you ever need to hide from Maya, this is your spot."
+        text: "If you ever need find Maya, this is your spot."
       },
       {
         speaker: "Skylar",
@@ -640,7 +653,7 @@ var scenes = {
 
   skylar_tour_gym: {
     id: "skylar_tour_gym",
-    background: backgrounds.gym,
+    background: backgrounds.school.gym,
 
     cast: {
       skylar: {
@@ -673,7 +686,7 @@ var scenes = {
 
   skylar_tour_end: {
     id: "skylar_tour_end",
-    background: backgrounds.courtyard,
+    background: backgrounds.school.courtyard,
 
     cast: {
       skylar: {
@@ -694,7 +707,7 @@ var scenes = {
       },
       {
         custom: () => {
-          gameData.affection.skylar = (gameData.affection.skylar || 0) + 1;
+          gameData.affection.skylar += 1;
         },
         next: "school_intro"
       }
