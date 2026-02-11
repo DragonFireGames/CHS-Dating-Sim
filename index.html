@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dating Sim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="titleMusic" src="audio/title_theme.mp3" loop></audio>
+
+<!-- TITLE SCREEN -->
+<div id="titleScreen" class="screen visible">
+  <h1>CHS Dating Sim</h1>
+  <button class="menu-btn" onclick="openSaveSlots()">Start</button>
+  <button class="menu-btn" onclick="showScreen('pinBoard')">Pin Board</button>
+  <button class="menu-btn">Settings</button>
+  <img src="assets/mascot.png" class="titleImage" style="top: 10vh; height: 10vh"/>
+  <img id="char1" class="titleImage" style="right:0vw;"/>
+  <img id="char2" class="titleImage" style="left:0vw;"/>
+</div>
+
+<!-- CHARACTER SELECT -->
+<div id="characterSelect" class="screen">
+  <button class="back-btn" onclick="showScreen('titleScreen')">← Back</button>
+  <h2>Character Setup</h2>
+
+  <div class="name-box">
+    <label>Your Name</label><br>
+    <input id="playerName" type="text" placeholder="Enter your name" maxlength="20">
+  </div>
+
+  <div class="character-flex">
+
+    <!-- AVATAR -->
+    <div class="avatar-column">
+      <h3>Your Avatar</h3>
+
+      <div id="avatarDropZone">
+        <video id="videoPreview" autoplay></video>
+        <img id="avatarPreview">
+
+        <canvas id="canvas" style="display:none;"></canvas>
+
+        <div id="confirmOverlay">
+          <button id="confirmBtn">Use Photo</button>
+          <button id="cancelBtn">✕</button>
+        </div>
+      </div>
+
+      <button class="menu-btn" onclick="capturePhoto()">Capture Photo</button>
+
+      <p>Or drag an image onto the webcam area</p>
+      <input type="file" accept="image/*" onchange="uploadAvatar(event)">
+    </div>
+
+    <!-- SCHEDULE -->
+    <div class="schedule-column">
+      <h3>Select Your Schedule</h3>
+
+      <div class="schedule-box">
+        <label><input type="checkbox"> Morning Classes</label><br>
+        <label><input type="checkbox"> Afternoon Clubs</label><br>
+        <label><input type="checkbox"> Evening Job</label><br>
+        <label><input type="checkbox"> Weekend Free Time</label>
+      </div>
+
+      <button class="menu-btn" onclick="finishCharacter()">Continue</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- PIN BOARD -->
+<div id="pinBoard" class="screen">
+  <button class="back-btn" onclick="showScreen('titleScreen')">← Back</button>
+  <div class="board-container">
+    <div class="photo">Ending 1</div>
+    <div class="photo">Ending 2</div>
+    <div class="photo">Ending 3</div>
+    <div class="photo">Locked</div>
+    <div class="photo">Locked</div>
+  </div>
+</div>
+
+<!-- SAVE SLOTS -->
+<div id="saveSlots" class="screen">
+    <button class="back-btn" onclick="showScreen('titleScreen')">← Back</button>
+    <h2>Select a Save Slot</h2>
+
+    <div id="slotContainer"></div>
+</div>
+
+<!-- VN SCREEN --> 
+<div id="vnScreen" class="screen">
+  <div id="vnBackground">
+    <img id="bgImage" alt="">
+  </div>
+
+  <div id="dialogueBox" onclick="advanceDialogue()">
+    <div id="nameTag"></div>
+
+    <!-- Dual-layer text -->
+    <div id="dialogueWrapper">
+      <div id="dialogueTextVisible"></div>
+      <div id="dialogueTextGhost"></div>
+    </div>
+  </div>
+
+  <!-- Choices -->
+  <div id="choiceBox"></div>
+  
+  <button id="vnExitBtn" onclick="exitToMenu()">Exit</button>
+</div>
+
+<script src="test.js"></script>
+<script src="scenes.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    background: #f7e9f0;
+}
+
+/* Screens */
+.screen {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#characterSelect {
+    height: 150vh;
+}
+
+.visible {
+    display: flex;
+}
+
+/* Title */
+#titleScreen {
+    background: linear-gradient(135deg, #ffb7d5, #ffd6e8);
+    color: #fff;
+    text-align: center;
+}
+
+#titleScreen h1 {
+    font-size: 12vmin;
+    margin-bottom: 2vh;
+    z-index: 1;
+}
+
+.titleImage {
+    position: absolute;
+    z-index: 0;
+    height: 80vh;
+    bottom: 0px;
+}
+
+/* Buttons */
+.menu-btn {
+    padding: 1.2rem 2.4rem;
+    margin: 1rem;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 1rem;
+    background: #fff;
+    color: #d14f7b;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu-btn:hover {
+    background: #ffe3ef;
+    transform: scale(1.05);
+}
+
+.back-btn {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* Character Select */
+.name-box {
+    background: #fff;
+    padding: 2vh 2vw;
+    border-radius: 1rem;
+    border: 0.3rem solid #d9a8c4;
+    text-align: center;
+}
+
+#playerName {
+    margin-top: 1vh;
+    padding: 1vh 1vw;
+    width: 40vw;
+    font-size: 1.2rem;
+    border-radius: 0.8rem;
+    border: 0.3rem solid #d9a8c4;
+}
+
+.character-flex {
+    display: flex;
+    gap: 4vw;
+    margin-top: 4vh;
+}
+
+/* Avatar Column */
+.avatar-column, .schedule-column {
+    background: #fff;
+    padding: 3vh 3vw;
+    border-radius: 1rem;
+    border: 0.3rem solid #d9a8c4;
+    width: 35vw;
+    text-align: center;
+}
+
+/* Webcam / Avatar */
+#avatarDropZone {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 0.4rem dashed #d9a8c4;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#videoPreview, #avatarPreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#videoPreview {
+    transform: scaleX(-1);
+}
+
+#avatarPreview {
+    display: none;
+}
+
+/* Confirm Overlay */
+#confirmOverlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+#confirmBtn, #cancelBtn {
+    padding: 1vh 2vw;
+    border-radius: 0.6rem;
+    border: none;
+    cursor: pointer;
+}
+
+#confirmBtn {
+    background: #8fff9f;
+}
+
+#cancelBtn {
+    background: #ff8f8f;
+}
+
+/* Schedule */
+.schedule-box {
+    background: #fff;
+    padding: 2vh 2vw;
+    border-radius: 1rem;
+    border: 0.3rem solid #d9a8c4;
+}
+
+/* Pin Board */
+#pinBoard {
+    background: #ffeef5;
+}
+
+.board-container {
+    width: 80vw;
+    height: 60vh;
+    background: rgba(255,255,255,0.7);
+    border-radius: 1rem;
+    padding: 2vh 2vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+    overflow-y: auto;
+}
+
+.photo {
+    width: 18vw;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    border: 0.3rem solid #d9a88f;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Save Slots */
+#slotContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 60vw;
+    max-width: 600px;
+}
+
+.saveSlot {
+    background: #fff;
+    border: 0.3rem solid #d9a8c4;
+    border-radius: 1rem;
+    padding: 2vh 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.slotInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.deleteBtn {
+    background: #ff8f8f;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+/* VN Screen */ 
+#vnScreen { 
+    background: #000; 
+    color: #fff; 
+    justify-content: flex-end; 
+    align-items: center; 
+    user-select: none;
+}
+
+#vnBackground { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    overflow: hidden; 
+    z-index: 0; 
+} 
+
+#bgImage { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+} 
+
+.vnCharacter { 
+    position: absolute; 
+    bottom: 10vh;
+    height: auto; 
+    transition: transform 0.4s ease, left 0.4s ease, right 0.4s ease;
+    transform: translateX(-50%);
+}
+
+/* Dialogue box */ 
+#dialogueBox { 
+    position: relative; 
+    z-index: 1; 
+    width: 80vw; 
+    min-height: 18vh; 
+    margin-bottom: 5vh; 
+    background: rgba(0,0,0,0.7); 
+    border-radius: 1rem; 
+    padding: 2vh 2vw; 
+    cursor: pointer;
+} 
+
+#nameTag { 
+    font-weight: bold; 
+    margin-bottom: 1vh;
+} 
+
+#dialogueWrapper {
+    position: relative;
+    width: 100%;
+}
+
+#dialogueTextVisible {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    pointer-events: none;
+}
+
+#dialogueTextGhost {
+    visibility: hidden;
+    white-space: pre-wrap;
+}
+
+/* Choices */
+#choiceBox {
+    position: absolute;
+    bottom: 25vh;
+    width: 60vw;
+    display: none;
+    flex-direction: column;
+    gap: 2vh;
+    z-index: 9;
+}
+
+.choiceBtn {
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 2vh 2vw;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.choiceBtn:hover {
+    background: rgba(255,255,255,1);
+}
+
+#vnExitBtn {
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    background: rgba(255,255,255,0.8);
+    cursor: pointer;
+    z-index: 10;
+}
+
