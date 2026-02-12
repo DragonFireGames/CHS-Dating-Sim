@@ -1,11 +1,16 @@
 
 (()=>{
   var list = [
+    // Girls
     "assets/Maya/happy.png",
     "assets/Skylar/happy.png",
     "assets/Amanda/happy.png",
     "assets/Valentina/happy.png",
     "assets/Elena/happy.png",
+    // Guys
+    "assets/Tyler/neutral.png",
+    "assets/Julian/neutral.png",
+    "assets/Chad/neutral.png",
   ];
   for (var i = 1; i <= 2; i++) {
     var j = Math.floor(Math.random()*list.length);
@@ -20,7 +25,8 @@ const defaultGameData = {
     skylar: 0,
     amanda: 0,
     valentina: 0,
-    elena: 0
+    elena: 0,
+    tyler: 0,
   },
   flags: {},
   inventory: [],
@@ -70,7 +76,7 @@ var characters = {
     defaults: {
       emotion: "neutral",
       bottom: "0vh",
-      height: "80vh"
+      height: "82vh"
     },
     emotions: {
       happy: "assets/Skylar/happy.png",
@@ -105,11 +111,41 @@ var characters = {
     defaults: {
       emotion: "neutral",
       bottom: "0vh",
-      height: "80vh"
+      height: "78vh"
     },
     emotions: {
       happy: "assets/Elena/happy.png",
       neutral: "assets/Elena/neutral.png",
+    }
+  },
+  tyler: {
+    defaults: {
+      emotion: "neutral",
+      bottom: "0vh",
+      height: "80vh"
+    },
+    emotions: {
+      neutral: "assets/Tyler/neutral.png",
+    }
+  },
+  julian: {
+    defaults: {
+      emotion: "neutral",
+      bottom: "0vh",
+      height: "80vh"
+    },
+    emotions: {
+      neutral: "assets/Julian/neutral.png",
+    }
+  },
+  chad: {
+    defaults: {
+      emotion: "neutral",
+      bottom: "0vh",
+      height: "85vh"
+    },
+    emotions: {
+      neutral: "assets/Chad/neutral.png",
     }
   }
 };
@@ -120,6 +156,7 @@ var backgrounds = {
       biology: "backgrounds/school/classes/biology.jpg",
       calculus: "backgrounds/school/classes/calculus.jpg",
       government: "backgrounds/school/classes/government.jpg",
+      literature: "backgrounds/school/classes/literature.jpg",
     },
     hallways: {
       F: "backgrounds/school/hallways/F.jpg",
@@ -234,11 +271,14 @@ var scenes = {
     background: backgrounds.school.classes.government,
 
     cast: {
+      julian: { emotion: "neutral", left: "95vw", bottom: "0vh" },
       skylar: { emotion: "happy", left: "20vw", bottom: "0vh" },
       valentina:{ emotion: "neutral", left: "80vw", bottom: "0vh" },
       maya: { emotion: "fearful", left: "55vw", bottom: "0vh" },
       amanda: { emotion: "neutral", left: "35vw", bottom: "0vh" },
-      elena: { emotion: "neutral", left: "65vw", bottom: "0vh" }
+      elena: { emotion: "neutral", left: "65vw", bottom: "0vh" },
+      tyler: { emotion: "neutral", left: "10vw", bottom: "0vh" },
+      chad: { emotion: "neutral", left: "45vw", bottom: "0vh" },
     },
 
     script: [
@@ -252,11 +292,221 @@ var scenes = {
       },
       {
         speaker: "Teacher",
-        text: "Walk around and find classmates who match the prompts I give you."
+        text: "Walk around and find classmates who match the prompts I gave you."
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "julian", left: "120vw" },
+          { character: "skylar", left: "-20vw" },
+          { character: "valentina", left: "120vw" },
+          { character: "maya", left: "120vw" },
+          { character: "amanda", left: "-20vw" },
+          { character: "elena", left: "120vw" },
+          { character: "tyler", left: "120vw" },
+          { character: "chad", left: "50vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Chad Minovsky",
+        text: "I am in this class just because my friends are in it.",
+        scene: [
+          { character: "julian", visible: false },
+          { character: "skylar", visible: false },
+          { character: "valentina", visible: false },
+          { character: "maya", visible: false },
+          { character: "amanda", visible: false },
+          { character: "elena", visible: false },
+          { character: "tyler", visible: false },
+          { character: "chad", visible: true },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "amanda", left: "50vw", visible: true },
+          { character: "chad", left: "120vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Amanda Bennett",
+        text: "I am a member of the CHS Band Program.",
+        scene: [
+          { character: "chad", visible: false },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "elena", left: "50vw", visible: true },
+          { character: "amanda", left: "-20vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Elena Cruz",
+        text: "I was on the local news once.",
+        scene: [
+          { character: "amanda", visible: false },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "tyler", left: "50vw", visible: true },
+          { character: "elena", left: "-20vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Tyler Hernandez",
+        text: "I broke a bone in 8th grade.",
+        scene: [
+          { character: "elena", visible: false },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "valentina", left: "50vw", visible: true },
+          { character: "tyler", left: "-20vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Valentina Reyes",
+        text: "I took a trip to Europe last year with the school.",
+        scene: [
+          { character: "tyler", visible: false },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "skylar", left: "50vw", visible: true },
+          { character: "valentina", left: "120vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Skylar Brooks",
+        text: "I play varsity volleyball and run track for Corona High School.",
+        scene: [
+          { character: "valentina", visible: false },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "julian", left: "50vw", visible: true },
+          { character: "skylar", left: "-20vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Julian Arroyo",
+        text: "I transferred into this school Sophomore year.",
+        scene: [
+          { character: "skylar", visible: false },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "maya", left: "50vw", visible: true },
+          { character: "julian", left: "-20vw" },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Maya Higgins",
+        text: "I get straight A's and I like to read books.",
+        scene: [
+          { character: "julian", visible: false },
+        ],
+      },
+      {
+        cinematic: true,
+        scene: [
+          { character: "maya", left: "-20vw", visible: true },
+        ],
+        duration: 800,
+      },
+      {
+        speaker: "Teacher",
+        text: "Let's assign some seating.",
+        scene: [
+          { character: "maya", visible: false },
+        ],
+      },
+      {
+        speaker: "Narrator",
+        text: "You are sat next to Chad, Elena, and Valentina.",
+        scene: [
+          { character: "chad", left: "25vw", visible: true },
+          { character: "elena", left: "50vw", visible: true },
+          { character: "valentina", left: "75vw", visible: true },
+        ],
+      },
+      {
+        speaker: "Teacher",
+        text: "Now take out a separate sheet of paper. Have you ever heard of plato's allegory of the cave?",
+      },
+      {
+        speaker: "Narrator",
+        text: "You doodle for the rest of class.",
+        next: "literature_intro"
       },
     ]
   },
-
+  literature_intro: {
+    id: "literature_intro",
+    background: backgrounds.school.classes.literature,
+    cast: {
+      tyler: { emotion: "neutral", left: "33vw" },
+      amanda: { emotion: "neutral", left: "66vw" },
+    },
+    script: [
+      {
+        speaker: "Narrator",
+        text: "You arrive in your next class, AP Literature.",
+      },
+      {
+        speaker: "Narrator",
+        text: "You sit next to Tyler and Amanda.",
+      },
+      {
+        speaker: "Narrator",
+        text: "The game is not finished!",
+        next: ()=>{prompt("The game is not finished, the script ends here. If you would like to help, join the club, remind code is @chsgamedev. Thanks for playing! Also, when the game is updated this point will move."); return vnIndex;}
+      },
+    ]
+  },
+  psychology_intro: {
+    id: "literature_intro",
+    background: backgrounds.school.classes.literature,
+    cast: {
+      tyler: { emotion: "neutral", left: "33vw" },
+      amanda: { emotion: "neutral", left: "66vw" },
+    },
+    script: [
+      {
+        speaker: "Narrator",
+        text: "You arrive in your next class, AP Literature.",
+      },
+      {
+        speaker: "Narrator",
+        text: "You sit next to Tyler and Amanda.",
+      },
+      {
+        speaker: "Narrator",
+        text: "The game is not finished!",
+        next: ()=>{prompt("The game is not finished, the script ends here. If you would like to help, join the club, remind code is @chsgamedev. Thanks for playing! Also, when the game is updated this point will move."); return vnIndex;}
+      },
+    ]
+  },
 
   home: {
     id: "home",
