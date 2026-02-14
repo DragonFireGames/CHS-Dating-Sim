@@ -11,6 +11,7 @@
     "assets/Tyler/neutral.png",
     "assets/Julian/neutral.png",
     "assets/Chad/neutral.png",
+    "assets/Lucas/neutral.png",
   ];
   for (var i = 1; i <= 2; i++) {
     var j = Math.floor(Math.random()*list.length);
