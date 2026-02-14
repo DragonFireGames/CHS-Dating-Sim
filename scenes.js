@@ -147,6 +147,16 @@ var characters = {
     emotions: {
       neutral: "assets/Chad/neutral.png",
     }
+  },
+  lucas: {
+    defaults: {
+      emotion: "neutral",
+      bottom: "0vh",
+      height: "81vh"
+    },
+    emotions: {
+      neutral: "assets/Lucas/neutral.png",
+    }
   }
 };
 
@@ -465,7 +475,7 @@ var scenes = {
     id: "literature_intro",
     background: backgrounds.school.classes.literature,
     cast: {
-      tyler: { emotion: "neutral", left: "33vw" },
+      lucas: { emotion: "neutral", left: "33vw" },
       amanda: { emotion: "neutral", left: "66vw" },
     },
     script: [
@@ -475,7 +485,7 @@ var scenes = {
       },
       {
         speaker: "Narrator",
-        text: "You sit next to Tyler and Amanda.",
+        text: "You sit next to Lucas and Amanda.",
       },
       {
         speaker: "Narrator",
