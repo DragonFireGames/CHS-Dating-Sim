@@ -171,6 +171,13 @@ var backgrounds = {
     },
     hallways: {
       F: "backgrounds/school/hallways/F.jpg",
+      B: "backgrounds/school/hallways/B.jpg",
+      back: "backgrounds/school/hallways/back.jpg",
+      high_five: "backgrounds/school/hallways/high_five.jpg",
+    },
+    lunch: {
+      back: "backgrounds/school/lunch/back.jpg",
+      counselor: "backgrounds/school/lunch/counselor.jpg",
     },
     side_entrance: "backgrounds/school/side_entrance.jpg",
     front_entrance: "backgrounds/school/front_entrance.jpg",
@@ -454,9 +461,9 @@ var scenes = {
       },
       {
         speaker: "Narrator",
-        text: "You are sat next to Chad, Elena, and Valentina.",
+        text: "You are sat next to Tyler, Elena, and Valentina.",
         scene: [
-          { character: "chad", left: "25vw", visible: true },
+          { character: "tyler", left: "25vw", visible: true },
           { character: "elena", left: "50vw", visible: true },
           { character: "valentina", left: "75vw", visible: true },
         ],
@@ -499,7 +506,7 @@ var scenes = {
     id: "literature_intro",
     background: backgrounds.school.classes.literature,
     cast: {
-      tyler: { emotion: "neutral", left: "33vw" },
+      lucas: { emotion: "neutral", left: "33vw" },
       amanda: { emotion: "neutral", left: "66vw" },
     },
     script: [
@@ -509,7 +516,15 @@ var scenes = {
       },
       {
         speaker: "Narrator",
-        text: "You sit next to Tyler and Amanda.",
+        text: "You sit next to Lucas and Amanda.",
+      },
+      {
+        speaker: "Teacher",
+        text: "Let me give you this syllabus.",
+      },
+      {
+        speaker: "Narrator",
+        text: "Nothing that memorable happens the rest of class.",
       },
       {
         speaker: "Narrator",
